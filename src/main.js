@@ -8,12 +8,13 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import {
   faBars,
+  faCaretDown,
   faUser,
   faUserSecret,
 } from "@fortawesome/free-solid-svg-icons";
 import "./assets/main.css";
 
-library.add(faUserSecret, faUser, faBars);
+library.add(faUserSecret, faUser, faBars, faCaretDown);
 
 const app = createApp(App);
 
