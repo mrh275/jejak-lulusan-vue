@@ -1,9 +1,9 @@
 <template>
   <nav
-    class="flex items-center justify-between w-full text-white bg-gray-800 navbar"
+    class="absolute bottom-0 flex items-center justify-between w-full text-white bg-gray-800 navbar"
   >
     <div
-      class="flex items-center justify-between w-full py-4 xl:justify-start brand-wrapper"
+      class="z-10 flex items-center justify-between w-full py-4 xl:justify-start brand-wrapper"
     >
       <img
         src="../assets/logo-xs.png"
@@ -17,6 +17,17 @@
         <fa icon="fa-solid fa-bars" size="lg"></fa>
       </button>
     </div>
+    <ul class="fixed top-0 w-1/2 h-full bg-gray-800 nav-menu">
+      <li class="nav-list">
+        <a href="/" class="nav-link">Home</a>
+      </li>
+      <li class="nav-list">
+        <a href="/services" class="nav-link">Services</a>
+      </li>
+      <li class="nav-list">
+        <a href="/about" class="nav-link">About</a>
+      </li>
+    </ul>
   </nav>
 </template>
 
