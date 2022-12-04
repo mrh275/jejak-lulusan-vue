@@ -28,8 +28,22 @@
       <li class="nav-list">
         <a href="/" class="nav-link">Home</a>
       </li>
-      <li class="nav-list">
-        <a href="/services" class="nav-link">Services</a>
+      <li class="nav-list dropdown">
+        <a href="/services" class="nav-link" @click="toggleDropdown($event)"
+          >Services
+          <fa icon="fa-solid fa-caret-down" class="ml-1" size="sm"></fa>
+        </a>
+        <ul class="hidden xl:block xl:invisible xl:opacity-0 dropdown-menu">
+          <li class="drop-list">
+            <a href="/contact" class="drop-link">Contact Us</a>
+          </li>
+          <li class="drop-list">
+            <a href="/contact" class="drop-link">Contact Us</a>
+          </li>
+          <li class="drop-list">
+            <a href="/contact" class="drop-link">Contact Us</a>
+          </li>
+        </ul>
       </li>
       <li class="nav-list">
         <a href="/about" class="nav-link">About</a>
@@ -51,6 +65,36 @@ export default {
         this.toggleMenuMobile = "-left-full";
       } else {
         this.toggleMenuMobile = "left-0";
+      }
+    },
+    toggleDropdown(e) {
+      e.preventDefault();
+      if (window.innerWidth >= 1280) {
+        this.dropdownToggleDesktop(e);
+      } else {
+        this.dropdownToggleMobile(e);
+      }
+    },
+    dropdownToggleDesktop(e) {
+      const dropdown = e.target.parentNode.lastChild.classList;
+      if (dropdown.contains("xl:invisible")) {
+        dropdown.remove("xl:invisible");
+        dropdown.remove("xl:opacity-0");
+        dropdown.add("xl:visible");
+        dropdown.add("xl:opacity-100");
+      } else {
+        dropdown.remove("xl:visible");
+        dropdown.remove("xl:opacity-100");
+        dropdown.add("xl:invisible");
+        dropdown.add("xl:opacity-0");
+      }
+    },
+    dropdownToggleMobile(e) {
+      const dropdown = e.target.parentNode.lastChild.classList;
+      if (dropdown.contains("hidden")) {
+        dropdown.remove("hidden");
+      } else {
+        dropdown.add("hidden");
       }
     },
   },
