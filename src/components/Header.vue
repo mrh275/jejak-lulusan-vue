@@ -13,11 +13,14 @@
       <a href="/" class="text-lg font-semibold xl:ml-4 brand xl:text-xl"
         >SMA Negeri 1 Rawamerta</a
       >
-      <button class="mr-6 toggle-menu-m" type="button">
+      <button class="mr-6 toggle-menu-m" type="button" @click="toggleMenu">
         <fa icon="fa-solid fa-bars" size="lg"></fa>
       </button>
     </div>
-    <ul class="fixed top-0 w-1/2 h-full bg-gray-800 nav-menu">
+    <ul
+      class="fixed top-0 w-1/2 h-full bg-gray-800 nav-menu"
+      :class="toggleMenuMobile"
+    >
       <li class="nav-list">
         <a href="/" class="nav-link">Home</a>
       </li>
@@ -34,7 +37,18 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      toggleMenuMobile: "-left-full",
+    };
+  },
+  methods: {
+    toggleMenu() {
+      if (this.toggleMenuMobile == "left-0") {
+        this.toggleMenuMobile = "-left-full";
+      } else {
+        this.toggleMenuMobile = "left-0";
+      }
+    },
   },
 };
 </script>
